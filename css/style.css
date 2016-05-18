@@ -50,8 +50,8 @@ h1 {
   font-weight: 400;
 }
 
-ul {
-  margin-left: 5.5em;
+.fa-ul {
+  padding-left: 3em;
   padding-bottom: 1.5em;
   line-height: 1.5;
 }
@@ -61,10 +61,14 @@ ul {
   margin-left: 45em;
   margin-right: 5em;
   margin-top: 2em;
-  background-color: rgba(9, 154, 114, 0.65);
   text-align: center;
-  color: #fff;
+  color: #464447;
   padding: 0.1em 0;
+  background: linear-gradient( 45deg, #D8D8D8, #BDDFDE ); 
+}
+
+.message {
+  font-weight: 300;
 }
 
 .korra-main {
