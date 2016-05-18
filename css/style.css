@@ -1,0 +1,84 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0px;
+  font-family: "Catamaran", sans-serif;
+}
+
+.title {
+  width: 50em;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+  color: #4A4A4A;
+}
+
+h1 {
+  font-family: "HerculanumLTW01-Roman", "Helvetica Neue", sans-serif;
+  margin-bottom: 0;
+  margin-top: 0.5em;
+  font-size: 3.5em;
+  padding-bottom: 0.13em;
+}
+
+.subtitle {
+  margin-top: 0;
+  font-weight: 300;
+  font-size: 1.2em;
+  color: #4A4A4A;
+}
+
+.quiz {
+  width: 35em;
+  margin-left: 42em;
+  margin-right: 5em;
+  margin-top: 8em;
+  background-color: #2A456B;
+  color: #fff;
+  border-radius: 1em 4em 1em 3em;
+}
+
+.question {
+  padding-left: 1.2em;
+  padding-top: 1em;
+  font-weight: 400;
+}
+
+ul {
+  margin-left: 5.5em;
+  padding-bottom: 1.5em;
+  line-height: 1.5;
+}
+
+.collection {
+  width: 30em;
+  margin-left: 45em;
+  margin-right: 5em;
+  margin-top: 2em;
+  background-color: rgba(9, 154, 114, 0.65);
+  text-align: center;
+  color: #fff;
+  padding: 0.1em 0;
+}
+
+.korra-main {
+  width: 450px;
+  position: fixed;
+  bottom: 0;
+  left: 7em;
+}
+
+@font-face {font-family: "HerculanumLTW01-Roman";
+    src: url("http://db.onlinewebfonts.com/t/53c7fe3ce67d33e8535956ba4edd38c3.eot");
+    src: url("http://db.onlinewebfonts.com/t/53c7fe3ce67d33e8535956ba4edd38c3.eot?#iefix") format("embedded-opentype"),
+    url("http://db.onlinewebfonts.com/t/53c7fe3ce67d33e8535956ba4edd38c3.woff2") format("woff2"),
+    url("http://db.onlinewebfonts.com/t/53c7fe3ce67d33e8535956ba4edd38c3.woff") format("woff"),
+    url("http://db.onlinewebfonts.com/t/53c7fe3ce67d33e8535956ba4edd38c3.ttf") format("truetype"),
+    url("http://db.onlinewebfonts.com/t/53c7fe3ce67d33e8535956ba4edd38c3.svg#HerculanumLTW01-Roman") format("svg");
+}
