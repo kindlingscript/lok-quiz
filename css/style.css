@@ -85,6 +85,13 @@ button:hover {
   cursor: pointer;
 }
 
+.results {
+  width: 35em;
+  margin-left: 42em;
+  margin-right: 5em;
+  margin-top: 10em;
+}
+
 .collection {
   width: 30em;
   margin-left: 45em;
@@ -101,6 +108,36 @@ button:hover {
   margin-top: -6.2em;
   font-size: 1.3em;
   margin-left: 2.4em;
+}
+
+.end-message {
+  margin-top: -11em;
+  margin-left: 5em;
+}
+
+.end-message h2 {
+  font-weight: 400;
+}
+
+h2 > .bold {
+  font-weight: 600;
+}
+
+.less-margin {
+  margin-bottom: -0.5em;
+}
+
+.centered {
+  padding-left: 4.5em;
+}
+
+.collected-scrolls {
+  margin-top: 3.5em;
+  margin-left: 5em;
+}
+
+.small-scrolls {
+  margin-right: 0.5em;
 }
 
 .korra-main {
