@@ -60,6 +60,7 @@ button:hover {
 }
 
 .quiz {
+  display: none;
   width: 35em;
   margin-left: 42em;
   margin-right: 5em;
@@ -86,6 +87,7 @@ button:hover {
 }
 
 .results {
+  display: none;
   width: 35em;
   margin-left: 42em;
   margin-right: 5em;
@@ -93,6 +95,7 @@ button:hover {
 }
 
 .collection {
+  display: none;
   width: 30em;
   margin-left: 45em;
   margin-right: 5em;
