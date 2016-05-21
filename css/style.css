@@ -13,7 +13,7 @@ body {
 }
 
 .title {
-  width: 50em;
+  width: 50rem;
   margin-right: auto;
   margin-left: auto;
   text-align: center;
@@ -34,10 +34,10 @@ h1 {
 }
 
 .starting-point {
-  width: 35em;
-  margin-left: 42em;
-  margin-right: 5em;
-  margin-top: 10em;
+  width: 40%;
+  margin-left: 45%;
+  margin-right: 10%;
+  margin-top: 13%;
 }
 
 .starting-point > h2 {
@@ -50,8 +50,8 @@ button {
   color: #fff;
   border: none;
   border-radius: 0.5em;
-  padding: 0.5em 5em;
-  margin-left: 10em;
+  padding: 2% 12%;
+  margin-left: 28%;
 }
 
 button:hover {
@@ -157,4 +157,57 @@ h2 > .bold {
     url("http://db.onlinewebfonts.com/t/53c7fe3ce67d33e8535956ba4edd38c3.woff") format("woff"),
     url("http://db.onlinewebfonts.com/t/53c7fe3ce67d33e8535956ba4edd38c3.ttf") format("truetype"),
     url("http://db.onlinewebfonts.com/t/53c7fe3ce67d33e8535956ba4edd38c3.svg#HerculanumLTW01-Roman") format("svg");
+}
+
+@media only screen and (max-width: 780px) {
+  .korra-main {
+    width: 16rem;
+  }
+
+  .title {
+    width: 31rem;
+  }
+
+  .title > h1 {
+    font-size: 2.5em;
+    padding-right: 0.8em;
+  }
+
+  .starting-point {
+    width: 20rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 4em;
+  }
+
+  .starting-point > h2 {
+    font-size: 1.5em;
+    text-align: center;
+  }
+
+  button {
+    padding: 5% 29%;
+    margin-left: 1.5rem;
+  }
+
+  .quiz {
+    width: 20rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2em;
+    background-color: #2A456B;
+    color: #fff;
+    border-radius: 1em 4em 1em 3em;
+  }
+
+  .question {
+    margin-top: 0;
+    padding-top: 0.5em;
+    padding-left: 0.8em;
+    padding-right: 0.9em;
+  }
+
+  .question > h2 {
+    font-size: 1.4em;
+  }
 }

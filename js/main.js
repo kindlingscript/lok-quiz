@@ -1,5 +1,3 @@
-"use strict";
-
 /**
   NOTES FOR FUNCTIONALITY OF APP:
 
@@ -16,39 +14,45 @@
 **/
 
 $(document).ready(function(){
+  "use strict";
 
   // Increment this var when user clicks on correct answer
   var correct = 0;
 
-  // Loop through this array of objects for quiz (which loop will work best?)
+  // Loop through this array of objects for quiz
   // each object stores the question, the answers
   // one correct answer, three incorrect
   // quiz questions' objects index from 0 to 4
-  // when user CLICKS on an answer, determine if correct, 
+  // when user CLICKS on submit button, determine if correct, 
   // then move on to the next object in the array and display it to them
   var quiz = [{
     // index 0
     question: "What was the last element that Korra mastered, at the age of 17?",
     answers: ["Fire", "Air", "Water", "Earth"],
-    inputID: "element"
+    enabled: true
   }, {
     // index 1
     question: "Question 2",
-    answers: ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]
+    answers: ["Answer 1", "Answer 2", "Answer 3", "Answer 4"],
+    enabled: false
   }, {
     // index 2
     question: "Question 3",
-    answers: ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]
+    answers: ["Answer 1", "Answer 2", "Answer 3", "Answer 4"],
+    enabled: false
   }, {
     // index 3
     question: "Question 4",
-    answer: ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]
+    answers: ["Answer 1", "Answer 2", "Answer 3", "Answer 4"],
+    enabled: false
   }, {
     // index 4
     question: "Question 5",
-    answer: ["Answer 1", "Answer 2", "Answer 3", "Answer 4"]
+    answers: ["Answer 1", "Answer 2", "Answer 3", "Answer 4"],
+    enabled: false
   }];
 
+  // Where it all begins...
   $(".begin").click(function(){
     console.log("Button clicked!");
     // Hide the first screen
@@ -57,7 +61,15 @@ $(document).ready(function(){
     $(this).parents(".container").find(".quiz").show();
   });
 
-  // Clicking on the li element to answer
+  // Loop through quiz array of objects, display questions
+  for (var i = 0; i < quiz.length; i++) {
+    if (quiz[i].enabled == true) {
+      $(".quiz").append('<div class="question"' + i + '><h2 class="question">' + quiz[i].question + '</h2>');
+      $(".quiz").append('<ul class="fa-ul"><li><i class="fa-li fa fa-circle-thin"></i>' + quiz[i].answers[0] + '</li>' + '<li><i class="fa-li fa fa-circle-thin"></i>' + quiz[i].answers[1] + '</li>' + '<li><i class="fa-li fa fa-circle-thin"></i>' + quiz[i].answers[2] + '</li>' + '<li><i class="fa-li fa fa-circle-thin"></i>' + quiz[i].answers[3] + '</li></ul></div>');
+    }
+  };
+
+  // Clicking on the li to answer
   $("ul.fa-ul li").click(function(){
     if ($(this).children("i").hasClass("fa-circle-thin")) {
       $("ul.fa-ul li").children("i").removeClass("fa-circle").addClass("fa-circle-thin");
@@ -65,12 +77,8 @@ $(document).ready(function(){
     } else if ($(this).children("i").hasClass("fa-circle")) {
       $("ul.fa-ul li").children("i").removeClass("fa-circle").addClass("fa-circle-thin");
       $(this).children("i").removeClass("fa-circle").addClass("fa-circle-thin");
-    };
+    }
   });
-
-  for (var i = 0; i < quiz.length; i++) {
-    $(".quiz").append("<div class='question'" + i + "><h2 class='question'>" + quiz[i].question + "</h2></div>");
-  };
 
   // <h2 class="question">What was the last element that Korra mastered, at the age of 17?</h2>
   //     <ul class="fa-ul">
