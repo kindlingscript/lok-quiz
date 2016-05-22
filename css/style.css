@@ -59,6 +59,10 @@ button:hover {
   cursor: pointer;
 }
 
+button.submit {
+  margin-bottom: 25px;
+}
+
 .quiz {
   display: none;
   width: 35em;

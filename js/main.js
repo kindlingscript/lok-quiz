@@ -32,27 +32,27 @@ $(document).ready(function(){
     enabled: true
   }, {
     // index 1
-    question: "Question 2",
-    answers: ["Answer 1", "Answer 2", "Answer 3", "Answer 4"],
+    question: "Who did Mako give his scarf to permanently?",
+    answers: ["Asami", "Bolin", "Grandma Yin", "Korra"],
     enabled: false
   }, {
     // index 2
-    question: "Question 3",
-    answers: ["Answer 1", "Answer 2", "Answer 3", "Answer 4"],
+    question: "What bending subskills do Mako and Bolin have, respectively?",
+    answers: ["Lightning generation and lavabending", "Combustionbending and metalbending", "Lightning generation and metalbending", "Combustionbending and lavabending"],
     enabled: false
   }, {
     // index 3
-    question: "Question 4",
-    answers: ["Answer 1", "Answer 2", "Answer 3", "Answer 4"],
+    question: "How many spirit portals are there at the end of the series?",
+    answers: ["2", "3", "5", "1"],
     enabled: false
   }, {
     // index 4
-    question: "Question 5",
-    answers: ["Answer 1", "Answer 2", "Answer 3", "Answer 4"],
+    question: "How many years was Korra away from Republic City between Book 3 and Book 4?",
+    answers: ["1", "Less than 1", "3", "5"],
     enabled: false
   }];
 
-  // Where it all begins...
+  // Starting a new instance of the quiz
   $(".begin").click(function(){
     console.log("Button clicked!");
     // Hide the first screen
@@ -61,12 +61,16 @@ $(document).ready(function(){
     $(this).parents(".container").find(".quiz").show();
   });
 
-  // Loop through quiz array of objects, display questions
+  // Loop through quiz array of objects, display questions one-by-one
   for (var i = 0; i < quiz.length; i++) {
     if (quiz[i].enabled == true) {
-      $(".quiz").append('<div class="question"' + i + '><h2 class="question">' + quiz[i].question + '</h2>');
-      $(".quiz").append('<ul class="fa-ul"><li><i class="fa-li fa fa-circle-thin"></i>' + quiz[i].answers[0] + '</li>' + '<li><i class="fa-li fa fa-circle-thin"></i>' + quiz[i].answers[1] + '</li>' + '<li><i class="fa-li fa fa-circle-thin"></i>' + quiz[i].answers[2] + '</li>' + '<li><i class="fa-li fa fa-circle-thin"></i>' + quiz[i].answers[3] + '</li></ul></div>');
-    }
+      $(".quiz").append('<h2 class="question">' + quiz[i].question + '</h2>');
+      $(".quiz").append('<ul class="fa-ul"></ul>');
+        for (var a = 0; a < quiz[i].answers.length; a++) {
+          $(".fa-ul").append('<li><i class="fa-li fa fa-circle-thin"></i>' + quiz[i].answers[a] + '</li>');
+        };
+      $(".quiz").append('<button class="submit">SUBMIT</button>');
+    };
   };
 
   // Clicking on the li to answer
@@ -79,13 +83,4 @@ $(document).ready(function(){
       $(this).children("i").removeClass("fa-circle").addClass("fa-circle-thin");
     }
   });
-
-  // <h2 class="question">What was the last element that Korra mastered, at the age of 17?</h2>
-  //     <ul class="fa-ul">
-  //       <li><i class="fa-li fa fa-circle-thin"></i>Fire</li>
-  //       <li><i class="fa-li fa fa-circle"></i>Air</li>
-  //       <li><i class="fa-li fa fa-circle-thin"></i>Water</li>
-  //       <li><i class="fa-li fa fa-circle-thin"></i>Earth</li>
-  //     </ul>
-  //     <button class="begin">SUBMIT</button>
 })
