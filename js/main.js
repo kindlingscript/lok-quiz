@@ -92,12 +92,24 @@ $(document).ready(function(){
         console.log("correct!");
         correct++;
         console.log(correct);
+        $(".numCorrect").html(correct);
       }
       // Increment to get next question
       currentQuestionNum++;
-      $(".quiz").empty();
-      
-      askQuestion();
+      console.log("current question: " + currentQuestionNum);
+      console.log("quiz.length: " + quiz.length);
+      if (currentQuestionNum < quiz.length) {
+        // Empty currect quiz div to make room for new question
+        $(".quiz").empty();
+        // Show collection after finishing 1st question
+        $(".collection").show();
+        askQuestion();
+      } else if (currentQuestionNum >= quiz.length) {
+        // Hide everything but results div once finished w/quiz
+        $(".quiz").empty();
+        $(".collection").empty();
+        $(".results").show();
+      }
     });
   };
 });

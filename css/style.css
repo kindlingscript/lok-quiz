@@ -90,6 +90,10 @@ button.submit {
   cursor: pointer;
 }
 
+.numCorrect {
+  font-weight: 600;
+}
+
 .results {
   display: none;
   width: 35em;
