@@ -68,7 +68,7 @@ button.submit {
   width: 35em;
   margin-left: 42em;
   margin-right: 5em;
-  margin-top: 6em;
+  margin-top: 4em;
   background-color: #2A456B;
   color: #fff;
   border-radius: 1em 4em 1em 3em;
@@ -76,6 +76,7 @@ button.submit {
 
 .question {
   padding-left: 1.2em;
+  padding-right: 1em;
   padding-top: 1em;
   font-weight: 400;
 }
@@ -168,6 +169,12 @@ h2 > .bold {
   position: fixed;
   bottom: 0;
   left: 7em;
+}
+
+.text-center {
+  text-align: center;
+  padding-bottom: 1em;
+  padding-right: 3em;
 }
 
 @font-face {font-family: "HerculanumLTW01-Roman";

@@ -29,27 +29,27 @@ $(document).ready(function(){
   // then move on to the next object in the array and display it to them
   var quiz = [{
     // index 0
-    question: "What was the last element that Korra mastered, at the age of 17?",
+    question: "1. What was the last element that Korra mastered, at the age of 17?",
     answers: ["Fire", "Air", "Water", "Earth"],
     correctAns: "Air"
   }, {
     // index 1
-    question: "Who did Mako give his scarf to permanently?",
+    question: "2. Who did Mako give his scarf to permanently?",
     answers: ["Asami", "Bolin", "Grandma Yin", "Korra"],
     correctAns: "Grandma Yin"
   }, {
     // index 2
-    question: "What bending subskills do Mako and Bolin have, respectively?",
+    question: "3. What bending subskills do Mako and Bolin have, respectively?",
     answers: ["Lightning generation and lavabending", "Combustionbending and metalbending", "Lightning generation and metalbending", "Combustionbending and lavabending"],
     correctAns: "Lightning generation and lavabending"
   }, {
     // index 3
-    question: "How many spirit portals are there at the end of the series?",
+    question: "4. How many spirit portals are there at the end of the series?",
     answers: ["2", "3", "5", "1"],
     correctAns: "3"
   }, {
     // index 4
-    question: "After leaving the South Pole in Book 4, how many months was Korra alone?",
+    question: "5. After leaving the South Pole in Book 4, how many months was Korra alone?",
     answers: ["3", "Less than 1", "6", "5"],
     correctAns: "6"
   }];
@@ -64,6 +64,7 @@ $(document).ready(function(){
   });
 
   var currentQuestionNum = 0;
+  var remaining = 4;
 
   function askQuestion(){
     $(".quiz").show();
@@ -73,6 +74,13 @@ $(document).ready(function(){
         $(".fa-ul").append('<li><i class="fa-li fa fa-circle-thin"></i><span>' + quiz[currentQuestionNum].answers[a] + '</span></li>');
       };
     $(".quiz").append('<button class="submit">SUBMIT</button>');
+    if (remaining > 1) {
+      $(".quiz").append('<h4 class="text-center">' + remaining.toString() + ' questions remain</h4>');
+    } else if (remaining == 1) {
+      $(".quiz").append('<h4 class="text-center">' + remaining.toString() + ' question remains</h4>');
+    } else {
+      $(".quiz").append('<h4 class="text-center">Last question!</h4>');
+    }
 
     // Clicking to select answer (using Font Awesome circles)
     $("ul.fa-ul li").click(function(){
@@ -90,9 +98,18 @@ $(document).ready(function(){
     $(".submit").click(function(){
       var answer = $(".fa-circle").parent().children("span").html();
 
-      if (quiz[currentQuestionNum].correctAns == answer) {
+      // if (quiz[currentQuestionNum].correctAns == answer) {
+      //   correct++;
+      //   scrolls++;
+      // };
+
+      if (answer == quiz[currentQuestionNum].correctAns) {
         correct++;
         scrolls++;
+        remaining--;
+      } else if (answer == undefined) {
+        alert("Choose an answer before submitting, please");
+        return;
       };
 
       $(".numCorrect").html(correct);
@@ -102,7 +119,7 @@ $(document).ready(function(){
       console.log("current question is " + currentQuestionNum);
       console.log("quiz length is " + quiz.length);
 
-      if (currentQuestionNum < quiz.length) {
+      if ((currentQuestionNum < quiz.length) && (answer != undefined)) {
         // Empty currect quiz div to make room for new question
         $(".quiz").empty();
         // Show collection after finishing 1st question
