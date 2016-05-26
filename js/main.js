@@ -18,6 +18,9 @@ $(document).ready(function(){
   // Increment this var when user clicks on correct answer
   var correct = 0;
 
+  // Variable of scroll images to increment
+  var scrolls = 0;
+
   // Increment through this array of objects for quiz
   // each object stores the question, the answers
   // one correct answer, three incorrect
@@ -89,15 +92,14 @@ $(document).ready(function(){
       var answer = $(".fa-circle").parent().children("span").html();
       console.log(answer);
       if (quiz[currentQuestionNum].correctAns == answer) {
-        console.log("correct!");
         correct++;
-        console.log(correct);
-        $(".numCorrect").html(correct);
+        scrolls++;
       }
+      $(".numCorrect").html(correct);
+
       // Increment to get next question
       currentQuestionNum++;
-      console.log("current question: " + currentQuestionNum);
-      console.log("quiz.length: " + quiz.length);
+
       if (currentQuestionNum < quiz.length) {
         // Empty currect quiz div to make room for new question
         $(".quiz").empty();
@@ -109,6 +111,9 @@ $(document).ready(function(){
         $(".quiz").empty();
         $(".collection").empty();
         $(".results").show();
+        for (var i = 0; i < scrolls; i++) {
+          $(".collected-scrolls").append('<img src="images/small-scrolls.png" class="small-scrolls">');
+        };
       }
     });
   };
