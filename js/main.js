@@ -56,7 +56,6 @@ $(document).ready(function(){
 
   // Starting a new instance of the quiz
   $(".begin").click(function(){
-    console.log("Button clicked!");
     // Hide the first screen
     $(this).parent(".starting-point").hide();
     // After hiding, go up in DOM and back down to find quiz class, then show it
@@ -90,15 +89,18 @@ $(document).ready(function(){
     // If so, add it to the "correct" count to display to user
     $(".submit").click(function(){
       var answer = $(".fa-circle").parent().children("span").html();
-      console.log(answer);
+
       if (quiz[currentQuestionNum].correctAns == answer) {
         correct++;
         scrolls++;
-      }
+      };
+
       $(".numCorrect").html(correct);
 
       // Increment to get next question
       currentQuestionNum++;
+      console.log("current question is " + currentQuestionNum);
+      console.log("quiz length is " + quiz.length);
 
       if (currentQuestionNum < quiz.length) {
         // Empty currect quiz div to make room for new question
@@ -109,12 +111,32 @@ $(document).ready(function(){
       } else if (currentQuestionNum >= quiz.length) {
         // Hide everything but results div once finished w/quiz
         $(".quiz").empty();
-        $(".collection").empty();
+        $(".collection").hide();
         $(".results").show();
+
+        // Display results message
+        if (correct >= 4) {
+          $(".eval").html("Great job!");
+        } else if (correct == 3) {
+          $(".eval").html("Good work! Try for more scrolls if you want.").removeClass("centered").addClass("three-scrolls");
+        } else {
+          $(".eval").html("Not so good... try to get more scrolls next time!").removeClass("centered").addClass("less-scrolls");;
+        };
+
+        // Append scrolls to results page
         for (var i = 0; i < scrolls; i++) {
           $(".collected-scrolls").append('<img src="images/small-scrolls.png" class="small-scrolls">');
         };
-      }
+
+        // Start a new game
+        $(".last").click(function() {
+          $(".results").empty();
+          currentQuestionNum = 0;
+          correct = 0;
+          scrolls = 0;
+          askQuestion();
+        });
+      };
     });
   };
 });

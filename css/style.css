@@ -30,7 +30,7 @@ h1 {
 .subtitle {
   margin-top: 0;
   font-weight: 300;
-  font-size: 1.2em;
+  font-size: 1.1em;
 }
 
 .starting-point {
@@ -149,6 +149,18 @@ h2 > .bold {
 
 .small-scrolls {
   margin-right: 1em;
+}
+
+.three-scrolls {
+  font-size: 1.3em;
+}
+
+.less-scrolls {
+  font-size: 1.2em;
+}
+
+.last {
+  margin-top: 30px;
 }
 
 .korra-main {
