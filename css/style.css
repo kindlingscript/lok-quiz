@@ -63,6 +63,16 @@ button.submit {
   margin-bottom: 25px;
 }
 
+a {
+  text-decoration: none;
+  color: #4A4A4A;
+  cursor: pointer;
+}
+
+a:hover {
+  color: #4387BD;
+}
+
 .quiz {
   display: none;
   width: 35em;
