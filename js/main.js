@@ -98,26 +98,22 @@ $(document).ready(function(){
     $(".submit").click(function(){
       var answer = $(".fa-circle").parent().children("span").html();
 
-      // if (quiz[currentQuestionNum].correctAns == answer) {
-      //   correct++;
-      //   scrolls++;
-      // };
-
       if (answer == quiz[currentQuestionNum].correctAns) {
         correct++;
         scrolls++;
         remaining--;
       } else if (answer == undefined) {
-        alert("Choose an answer before submitting, please");
+        alert("Choose an answer before submitting, please! :)");
         return;
+      } else if (answer != quiz[currentQuestionNum].correctAns) {
+        remaining--;
       };
 
+      // Place # correct so far in HTML
       $(".numCorrect").html(correct);
 
       // Increment to get next question
       currentQuestionNum++;
-      console.log("current question is " + currentQuestionNum);
-      console.log("quiz length is " + quiz.length);
 
       if ((currentQuestionNum < quiz.length) && (answer != undefined)) {
         // Empty currect quiz div to make room for new question
@@ -147,11 +143,13 @@ $(document).ready(function(){
 
         // Start a new game
         $(".last").click(function() {
-          $(".results").empty();
+          $(".results").hide();
           currentQuestionNum = 0;
           correct = 0;
           scrolls = 0;
+          remaining = 4;
           askQuestion();
+          $(".collected-scrolls").empty('');
         });
       };
     });
